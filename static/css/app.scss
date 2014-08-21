@@ -1,0 +1,507 @@
+@import 'common.scss';
+
+$blue: #46AAFF;
+$green: #2BDE73;
+$slate: #303A44;
+$modal: rgba(48,58,68,0.9); /* #303A44 a=90% */
+$grey: #8C98A5;
+$cloud: #EBF1F4;
+$stormy: darken($cloud, 20%);
+$white: rgba(255,255,255,0.97);
+$red: #FF382C;
+.shadow {
+  box-shadow: 0px 2px 2px 0px #DFE8EE;
+}
+$radius: 3px;
+.grey { color: #8C98A5; }
+
+
+//////////////////////////////////////////////
+//
+//  Contents
+//
+//    - Header
+//    - Footer
+//    - Main
+//    - Modal
+//    - Projects
+//    - Project
+//        - Overview
+//        - Technical
+//        - Environmental
+//        - Investment
+//        - Schematic
+//    - Dasboard
+//    - Initiate
+//
+//////////////////////////////////////////////
+
+
+//
+//  Utils
+//
+.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:$cloud;position:fixed;z-index:2000;top:0;left:0;height:0;-webkit-transition:width 1s;-moz-transition:width 1s;-o-transition:width 1s;transition:width 1s}.pace .pace-progress-inner{display:block;position:absolute;right:0;width:100px;height:100%;box-shadow:0 0 10px $cloud,0 0 5px $cloud;opacity:1;-webkit-transform:rotate(3deg) translate(0px,-4px);-moz-transform:rotate(3deg) translate(0px,-4px);-ms-transform:rotate(3deg) translate(0px,-4px);-o-transform:rotate(3deg) translate(0px,-4px);transform:rotate(3deg) translate(0px,-4px)}.pace .pace-activity{display:block;position:fixed;z-index:2000;top:30px;left:50%;width:16px;height:16px;margin-top:-8px;margin-left:-8px;border:2px solid transparent;border-top-color:$cloud;border-left-color:$cloud;border-radius:10px;-webkit-animation:pace-spinner 400ms linear infinite;-moz-animation:pace-spinner 400ms linear infinite;-ms-animation:pace-spinner 400ms linear infinite;-o-animation:pace-spinner 400ms linear infinite;animation:pace-spinner 400ms linear infinite}@-webkit-keyframes pace-spinner{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-moz-keyframes pace-spinner{0%{-moz-transform:rotate(0deg);transform:rotate(0deg)}100%{-moz-transform:rotate(360deg);transform:rotate(360deg)}}@-o-keyframes pace-spinner{0%{-o-transform:rotate(0deg);transform:rotate(0deg)}100%{-o-transform:rotate(360deg);transform:rotate(360deg)}}@-ms-keyframes pace-spinner{0%{-ms-transform:rotate(0deg);transform:rotate(0deg)}100%{-ms-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes pace-spinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+
+
+//
+//  Header
+//
+header.header {
+  position: fixed;
+  width: 100%;
+  background: $white;
+  z-index: 998;
+  border-bottom: 1px solid $cloud;
+}
+
+.container-header {
+  padding: 0 28px 0 28px;
+}
+
+  .brand {
+    float: left;
+    background: url(../media/logotype.png) no-repeat;
+    background-size: 161px 36px;
+    width: 188px;
+    height: 36px;
+    margin: 10px 0 10px 0;
+  }
+
+  nav.nav {
+    float: right;
+    line-height: 28px;
+    padding: 14px 0 14px 0;
+
+    ul {
+      li { margin-left: 24px; }
+
+      a.link,
+      span.link {
+        font-size: 14px;
+        font-weight: 600;
+        color: $slate;
+        -webkit-transition: color 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          color: $grey;
+          svg { fill: $grey; }
+        }
+
+        svg {
+          height: 14px;
+          width: 14px;
+          margin: 0 3px -2px 0;
+        }
+      }
+    }
+  }
+      
+
+
+  .open-nav {
+    display: none;
+    float: right;
+    border: 1px solid $cloud;
+    border-radius: $radius;
+    line-height: 36px;
+    padding: 0 12px 0 12px;
+    margin: 9px 0 7px 0;
+    cursor: pointer;
+    -webkit-transition: 0.2s all;
+
+    &:hover {
+      color: $stormy;
+    }
+    &:active {
+      color: $grey;
+      border-color: $stormy;
+    }
+  }
+
+  .mobile-nav {
+    display: none;
+    padding: 0;
+
+    ul li {
+      display: block;
+      width: calc(100%+40px);
+      border-bottom: 1px solid $cloud;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 10px 30px 10px 30px;
+    }
+
+    ul li:first-child { border-top: 1px solid $cloud; }
+    ul li:last-child { border: none; }
+
+    a.link,
+    span.link {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 600;
+      color: $slate;
+      -webkit-transition: color 0.2s;
+      cursor: pointer;
+
+      &:hover { color: $grey; }
+    }
+
+    .signout {
+      width: 100%;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+
+
+
+//
+//  Main
+//
+.main { padding: 60px 0 0 0; }
+.push-down-row { margin-bottom: 8px; }
+
+
+
+
+//
+//  Projects
+//
+.home {
+  
+  .h2 {
+    color: $grey;
+  }
+}
+
+.panel-outline {
+  @extend .panel;
+  background: none;
+  box-shadow: none;
+  border: 2px dashed $stormy;
+  min-height: 558px;
+}
+
+.new-project-button {
+  text-align: center;
+  color: $stormy;
+  font-size: 20px;
+  font-weight: 600;
+  -webkit-transition: 0.2s color;
+  cursor: pointer;
+
+  margin-top: 50%;
+
+  i { font-size: 40px; line-height: 70px; }
+
+  &:hover {
+    color: lighten($stormy, 5%);
+  }
+  &:active {
+    color: darken($stormy, 5%);
+  }
+}
+
+
+
+//
+//  Project
+//
+.map-img {
+  position: relative;
+
+  img {
+    position: absolute;
+    width: calc(100% + 50px);
+    margin: -15px -30px 0 -30px;
+  }
+  .name-of-project {
+    position: relative;
+    color: white;
+    font-weight: 400;
+    text-shadow: 0px 3px 8px rgba(0, 0, 0, 1);
+    padding-top: 66%;
+
+    a {
+      color: white;
+    }
+    a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.info {
+  margin-top: 25px;
+}
+
+.location,
+.solar-developer,
+.land-owner,
+.project-size {
+  margin-bottom: 15px;
+}
+
+.loadzone { color: $grey; }
+
+.funding {
+  margin-top: 20px;
+}
+
+.days-remaining {
+  color: $grey;
+  float: right;
+  font-weight: 400;
+}
+
+.funding-bar {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 3px;
+
+  .row {
+    padding-top: 16px;
+  }
+
+  .col-md-4 {
+    line-height: 12px;
+    font-size: 12px;
+    color: $grey;
+
+    &:first-child { text-align: left; }
+    text-align: center;
+    &:last-child { text-align: right; }
+  }
+}
+  
+  .funding-bar-bg {
+    position: absolute;
+    width: calc(100% - 70px);
+    height: 12px;
+    background: $cloud;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+  }
+
+  .funding-bar-progress {
+    position: absolute;
+    width: calc((100% - 70px) * 0.25);
+    height: 12px;
+    background: $blue;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+  }
+  .funding-bar-progress-green {
+    @extend .funding-bar-progress;
+    background: $green;
+  }
+
+
+
+//
+//  Schematic
+//
+.schematic {
+  img {
+    position: absolute;
+    max-height: 100%;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+}
+
+
+
+
+//
+//  Techical
+//
+.table-right { 
+  float: right; 
+  @extend .label-lg; 
+  color: $slate;
+  padding: 0 0 5px 0;
+}
+
+.chart {
+  font-size: 10px;
+  margin-bottom: 16px;
+  -webkit-box-sizing: border-box;
+
+  div {
+    background: $cloud;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: right;
+    padding: 0 4px 0 4px;
+    margin-bottom: 1px;
+    -webkit-box-sizing: border-box;
+    overflow: auto;
+
+    .pull-left { color: $grey; }
+  }
+
+
+  .bar.positive { fill: $green; }
+  .bar.negative { fill: $red; }
+   
+  .axis text {
+    font: 10px 'Proxima Nova';
+    fill: $slate;
+  }
+   
+  .axis path, .axis line {
+    fill: none;
+    stroke: $slate;
+    shape-rendering: crispEdges;
+  }
+}
+
+
+
+//
+// Environmental
+//
+.trees { color: $green; }
+.cars { color: $blue; }
+
+.trees i,
+.cars i { margin-right: 5px; }
+
+
+
+//
+//  Savings
+//
+.savings {
+
+  .label-md {
+    line-height: 1.5em;
+  }
+
+  div.button-md {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3px;
+  }
+
+  select {
+    width: 100%;
+    height: 32px;
+    background: $cloud;
+    color: $grey;
+    margin-bottom: 4px;
+  }
+}
+
+
+
+
+//
+//  Dashboard
+//
+.add-new-card { margin-top: 30px; }
+
+.load-zones,
+.townships,
+.utility-companies {
+  padding: 20px 0 20px 0;
+}
+  .new-load-zone,
+  .new-township,
+  .new-utility-company { display: none; }
+
+
+
+
+//
+//  Initiate
+//
+.initiate {
+
+  p {
+    color: $grey;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin: 10px 0 0 0;
+  }
+  
+  select {
+    width: 100%;
+    height: 32px;
+    background: $cloud;
+    color: $grey;
+    margin-bottom: 4px;
+  }
+
+  textarea {
+    width: 100%;
+    background: $cloud;
+    border-radius: $radius;
+    color: $grey;
+    margin-bottom: 4px;
+    padding: 4px 8px 4px 8px;
+  }
+
+  input[type=submit] { width: 100%; }
+}
+
+
+
+
+
+
+
+//
+//  Media queries
+//
+
+@media (max-width: 768px) {
+  .hide-on-mobile { display: none; }
+
+  .brand {
+    background: url(../media/logotype@2x.png) no-repeat;
+    background-size: 161px 36px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .open-nav {
+    display: block;
+  }
+
+  .panel-outline {
+    min-height: 100px;
+  }
+
+}
+
+@media (max-width: 992px) {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

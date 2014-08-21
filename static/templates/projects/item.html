@@ -1,0 +1,51 @@
+      <div class="col-md-4">
+        <div class="panel">
+          <div class="map-img">
+            <img src="../media/woburn.png">
+            <div class="name-of-project h2"><a href="/project<%= id%>"><%= name %></a></div>
+          </div>
+          <div class="info">
+            <div class="location">
+              <div class="label-sm">Location</div>
+              <div class="h3"><%= location %> <span class="loadzone">(NEMA)</span></div>
+            </div>
+            <div class="solar-developer">
+              <div class="label-sm">Solar Developer</div>
+              <div class="h3"><%= developer %></div>
+            </div>
+            <div class="land-owner">
+              <div class="label-sm">Land Owner</div>
+              <div class="h3"><%= landOwner %></div>
+            </div>
+            <div class="project-size">
+              <div class="label-sm">Size</div>
+              <div class="h3"><%= size %> kWh</div>
+            </div>
+          </div>
+          
+          <div class="divider"></div>
+
+          <div class="funding">
+            <div class="label-sm">Funding <span class="days-remaining">25 days left</span></div>
+            <div class="funding-bar">
+              <div class="funding-bar-bg"></div>
+              <div class="funding-bar-progress" style="width:<%=investmentPercentage%>%"></div>
+              <div class="row">
+                <div class="col-md-4 col-xs-4 col-sm-4">Investment</div>
+                <div class="col-md-4 col-xs-4 col-sm-4"><%=investmentPercentage%>%</div>
+                <div class="col-md-4 col-xs-4 col-sm-4">$<%=investmentCurrent%>k/<%=investmentGoal%>k</div>
+              </div>
+            </div>
+            <div class="funding-bar">
+              <div class="funding-bar-bg"></div>
+              <div class="funding-bar-progress-green" style="width:<%=consumptionPercentage%>%"></div>
+              <div class="row">
+                <div class="col-md-4 col-xs-4 col-sm-4">Consumption</div>
+                <div class="col-md-4 col-xs-4 col-sm-4"><%=consumptionPercentage%>%</div>
+                <div class="col-md-4 col-xs-4 col-sm-4"><%=consumptionCurrent%>/<%=consumptionGoal%> kW</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
