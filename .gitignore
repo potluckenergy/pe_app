@@ -3,3 +3,4 @@ env
 staticfiles
 node_modules
 .sass-cache
+package.json
