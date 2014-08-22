@@ -9,12 +9,16 @@ define([
   
   var LoginView = Backbone.View.extend({
 
+    template: function() {
+      return $('#login-template').html();
+    },
+
     initialize: function() {
       this.render();
     },
 
     render: function() {
-      modal.modal(loginTemplate);
+      modal.modal(this.template);
     }
 
   });

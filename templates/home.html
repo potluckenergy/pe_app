@@ -1,7 +1,65 @@
-<html>
-<head>
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static "css/app.css" %}">
-</head>
-Yo
-</html>
+  {% extends "static.html" %}
+
+  {% block content %}
+  <div class="tagline">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="hero">
+            Let’s make solar make sense.
+          </div>
+          <div class="sub-hero">
+            Potluck Energy brings together <span>residents</span>, <span>investors</span>, and <span>property owners</span> to make solar energy a financially viable alternative for the community.
+          </div>
+          <div class="call-to-action">
+            <a href="/projects" id="view-projects" class="button-md button-green view-projects">View Projects</a>
+          </div>
+        </div>
+
+        <div class="col-md-4 mailing-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  
+
+
+  <div class="three-parties">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4 col-sm-4">
+          <div class="title">
+            <i class="fa fa-flash energy"></i>
+            Homeowners and Tenants
+          </div>
+          <div class="description">
+            If you are a resident in the Greater Boston area, homeowner or tenant, participate for 1, 5, 10 or 20 years in community solar. You will receive clean electricity at your house, without the need of installing anything and at a cheaper rate than what you are currently charged for electricity.
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+          <div class="title">
+            <i class="fa fa-money money"></i>
+            Investors
+          </div>
+          <div class="description">
+            With community solar, you can earn a significant return on your investment while making a contribution to the environment and to your local community.
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+          <div class="title">
+            <i class="fa fa-building building"></i>
+            Building Owners
+          </div>
+          <div class="description">
+            If you are a property owner with a large under-utilized rooftop, you can either receive an additional income from leasing out the roof to us, or free electricity for you and your tenants.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}

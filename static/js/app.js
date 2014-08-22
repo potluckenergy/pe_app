@@ -13,6 +13,7 @@ require.config({
     'firebase': 'lib/firebase.min',
     'backfire': 'lib/backbone-firebase.min',
     'chart': 'lib/column-chart',
+
     'templates': '../templates',
     
     //  modules

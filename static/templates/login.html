@@ -1,19 +1,13 @@
-      
-      <div action="/login" method="post" id="login" class="login">
-        <div class="panel">
-          <div class="logo-center"></div>
-          <div class="divider"></div>
-          <div class="login-note">Please login to access your account:</div>
-          <div class="divider"></div>
-          <form class="login-form">
-            <input id="email" type="email" name="email" class="login-email" placeholder="Email">
-            <div class="divider"></div>
-            <input id="password" type="password" name="password" class="login-password" placeholder="Password">
-            <div class="divider"></div>
-            <input type="submit" class="button-lg button-blue" value="Login">
-            <div class="remember">
-              <input id="remember" type="checkbox"><label for="remember">Remember me</label>
-            </div>
-          </form>
+      <div class="login-panel">
+        <div class="login-heading">
+          <div class="login-title">Login</div>
+          <div class="exit-modal" id="exit-modal"><i class="fa fa-times"></i></div>
         </div>
+
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="text" name="email" placeholder="Email" autofocus>
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" class="button-md button-blue" name="login" value="Login">
+        </form>
       </div>

@@ -5,11 +5,11 @@ define([
   'underscore',
   'backbone',
   'text!templates/project/main.html',
-  'js/views/project/subs/overviewView.js',
-  'js/views/project/subs/technicalView.js',
-  'js/views/project/subs/environmentalView.js',
-  'js/views/project/subs/investmentView.js',
-  'js/views/project/subs/savingsView.js'
+  'static/js/views/project/subs/overviewView.js',
+  'static/js/views/project/subs/technicalView.js',
+  'static/js/views/project/subs/environmentalView.js',
+  'static/js/views/project/subs/investmentView.js',
+  'static/js/views/project/subs/savingsView.js'
 ], function(
   $, 
   _, 

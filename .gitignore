@@ -1,3 +1,5 @@
 env
 *.pyc
 staticfiles
+node_modules
+.sass-cache

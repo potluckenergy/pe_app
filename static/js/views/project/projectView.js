@@ -4,7 +4,7 @@ define([
   'underscore',
   'backbone',
   'text!templates/project/project.html',
-  'js/views/project/mainView.js',
+  'static/js/views/project/mainView.js',
   'collections/projects'
 ], function(
   $, 

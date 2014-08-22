@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Potluck Energy</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/0.5.5/pace.min.js"></script>
+  <script src="//use.typekit.net/ezs3fwk.js"></script>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="static/css/static.css">
+</head>
+<body>
+
+
+  <header class="landing-header">
+    <div class="container">
+      <nav class="landing-nav">
+        <ul>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+      <a href="/"><span class="logo"></span></a>
+
+      <div class="landing-auth">
+        <!--<a class="landing-signup" href="/signup">Signup</a>-->
+        <a id="login" class="landing-login">Login</a>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="main">
+    {% block content %}{% endblock %}
+  </div>
+  
+
+  <div class="divider"></div>
+
+
+   <footer id="footer" class="footer" style="padding:20px 0 20px 0;">
+    <div class="container">
+      <div class="center-content">
+        <ul>
+          <li>&copy; 2014</li>
+          <li><a href="/legal">Legal</a></li>
+          <li><a href="mailto:admin@potluckenergy.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+  <div id="modal" class="modal" style="display:none;">
+    <div id="modal-screen" class="modal-screen"></div>
+  </div>
+
+
+  <script id="login-template" type="text/template">
+      <div class="login-panel">
+        <div class="login-heading">
+          <div class="login-title">Login</div>
+          <div class="exit-modal" id="exit-modal"><i class="fa fa-times"></i></div>
+        </div>
+
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="text" name="email" placeholder="Email" autofocus>
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" class="button-md button-blue" name="login" value="Login">
+        </form>
+      </div>
+  </script>
+
+
+<!-- scripts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js" data-main="static/js/static.js" %}"></script>
+</body>
+</html>

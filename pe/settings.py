@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,13 +60,21 @@ WSGI_APPLICATION = 'pe.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+import dj_database_url
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if len(DATABASES['default']) == 0:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dauvin8eq5vj05',
+            'USER': 'iczmjfzxhebbvr',
+            'PASSWORD': 'jraB1KM_3iBY8MZvikQz2zeVxp',
+            'HOST': 'ec2-54-204-47-58.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
     }
-}
 
 LANGUAGE_CODE = 'en-us'
 
@@ -82,8 +91,8 @@ USE_TZ = True
     Heroku
 """
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+#import dj_database_url
+#DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -91,9 +100,18 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '%s/static/'%BASE_DIR
+STATIC_ROOT = 'static'
+STATIC_URL = '%s/public/'%BASE_DIR
 
 STATICFILES_DIRS = (
-    '%s/static/'%BASE_DIR,
+    '%s/public/'%BASE_DIR,
+)
+
+
+"""
+    Backends
+"""
+AUTHENTICATION_BACKENDS = (
+    'app.misc.EmailModelBackend',
+    'django.contrib.auth.backends.ModelBackend'
 )
