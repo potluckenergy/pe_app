@@ -1,9 +1,10 @@
 from django.conf.urls import patterns, include, url
 
-
+# admin
 from django.contrib import admin
 admin.autodiscover()
 
+# api
 from tastypie import api
 from app.api.resources import *
 v1_api = api.Api(api_name='v1')
@@ -19,7 +20,7 @@ v1_api.register(ProjectResource())
 v1_api.register(InvestmentResource())
 v1_api.register(ConsumptionResource())
 
-
+# routes
 urlpatterns = patterns('app.views',
 
     url(r'^$',          'home', name='home'),
@@ -28,6 +29,7 @@ urlpatterns = patterns('app.views',
     url(r'^projects',   'app', name='home'),
     url(r'^dashboard',  'app', name='home'),
     url(r'^project',    'app', name='home'),
+    url(r'^initiate',   'app', name='home'),
 
     # auth
     url(r'^login',      'login', name='home'),
@@ -45,6 +47,7 @@ urlpatterns = patterns('app.views',
 
 )
 
+# static things
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns += static(settings.STATIC_ROOT, document_root=settings.STATIC_ROOT)

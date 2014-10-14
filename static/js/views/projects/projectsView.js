@@ -16,11 +16,11 @@ define([
 
     projects: function() {
       var p = new Projects();
-      $.getJSON(p.data, function(data) {
-        $.each(data, function(item, val) {
+      $.getJSON(p.url, function(data) {
+        $.each(data['objects'], function(item, values) {
           new ItemView({
             el: $('#projects-list'),
-            model: val
+            model: values
           });
         });
       });

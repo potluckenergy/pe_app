@@ -22,16 +22,16 @@ define([
     projects: new Projects(),
 
     initialize: function(param) {
-      this.id = String(param.id);
+      this.id = String(param.id - 1);
       this.render();
     },
 
     render: function() {
       var id = this.id;
-      $.getJSON(this.projects.data, id, function(data) {
+      $.getJSON(this.projects.url, id, function(data) {
         new MainView({
           el: $('#main'),
-          model: data[id]
+          model: data['objects'][id]
         });
       });
     }

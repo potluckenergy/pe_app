@@ -17,14 +17,26 @@
     <div class="container">
       <nav class="landing-nav">
         <ul>
+          {% if user.is_authenticated %}
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/initiate">Initiate</a></li>
+          {% else %}
           <li><a href="/about">About</a></li>
+          {% endif %}
         </ul>
       </nav>
       <a href="/"><span class="logo"></span></a>
 
       <div class="landing-auth">
-        <!--<a class="landing-signup" href="/signup">Signup</a>-->
-        <a id="login" class="landing-login">Login</a>
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a class="landing-login" href="/logout">Logout</a></li>
+          {% else %}
+          <li><a id="login" class="landing-login">Login</a></li>
+          <!--<li><a class="landing-signup" href="/signup">Signup</a></li>-->
+          {% endif %}
+        </ul>
       </div>
     </div>
   </header>
@@ -43,6 +55,7 @@
       <div class="center-content">
         <ul>
           <li>&copy; 2014</li>
+          <li><a href="/about">About</a></li>
           <li><a href="/legal">Legal</a></li>
           <li><a href="mailto:admin@potluckenergy.com">Contact</a></li>
         </ul>

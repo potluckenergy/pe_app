@@ -11,6 +11,7 @@ class UserResource(ModelResource):
     resource_name = 'user'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class UtilityCompanyResource(ModelResource):
@@ -19,6 +20,7 @@ class UtilityCompanyResource(ModelResource):
     resource_name = 'utilityCompany'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class LoadZoneResource(ModelResource):
@@ -27,14 +29,17 @@ class LoadZoneResource(ModelResource):
     resource_name = 'loadZone'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class TownshipResource(ModelResource):
+  loadZone = fields.ForeignKey(LoadZoneResource, 'loadZone', full=True)
   class Meta:
     queryset = Township.objects.all()
     resource_name = 'township'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class DeveloperResource(ModelResource):
@@ -43,6 +48,7 @@ class DeveloperResource(ModelResource):
     resource_name = 'developer'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class LandOwnerResource(ModelResource):
@@ -51,6 +57,7 @@ class LandOwnerResource(ModelResource):
     resource_name = 'landOwner'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class LandTypeResource(ModelResource):
@@ -59,46 +66,54 @@ class LandTypeResource(ModelResource):
     resource_name = 'landType'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
+
 
 
 class SettingsResource(ModelResource):
-  user = fields.ForeignKey(UserResource, 'user')
-  township = fields.ForeignKey(TownshipResource, 'township')
+  user = fields.ForeignKey(UserResource, 'user', full=True)
+  township = fields.ForeignKey(TownshipResource, 'township', full=True)
   class Meta:
     queryset = Settings.objects.all()
     resource_name = 'settings'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
-
+    include_resource_uri = False
 
 
 
 
 class ProjectResource(ModelResource):
+  developer = fields.ForeignKey(DeveloperResource, 'developer', full=True)
+  landOwner = fields.ForeignKey(LandOwnerResource, 'landOwner', full=True)
+  landType = fields.ForeignKey(LandTypeResource, 'landType', full=True)
   class Meta:
     queryset = Project.objects.all()
     resource_name = 'project'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 class InvestmentResource(ModelResource):
-  project = fields.ForeignKey(ProjectResource, 'project')
-  user = fields.ForeignKey(UserResource, 'user')
+  project = fields.ForeignKey(ProjectResource, 'project', full=True)
+  user = fields.ForeignKey(UserResource, 'user', full=True)
   class Meta:
     queryset = Investment.objects.all()
     resource_name = 'investment'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 class ConsumptionResource(ModelResource):
-  project = fields.ForeignKey(ProjectResource, 'project')
-  user = fields.ForeignKey(UserResource, 'user')
+  project = fields.ForeignKey(ProjectResource, 'project', full=True)
+  user = fields.ForeignKey(UserResource, 'user', full=True)
   class Meta:
     queryset = Consumption.objects.all()
     resource_name = 'consumption'
     authorization= Authorization()
     allowed_methods = ['get', 'post', 'put', 'delete']
+    include_resource_uri = False
 
 
 

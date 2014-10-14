@@ -3,18 +3,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'firebase',
-  'backfire',
   '../models/project'
-], function($, _, Backbone, Firebase, Backfire, Project) {
+], function($, _, Backbone, Project) {
   
-  var Projects = Backbone.Firebase.Collection.extend({
+  var Projects = Backbone.Collection.extend({
 
     model: Project,
 
-    firebase: 'https://potluck-energy.firebaseio.com/projects',
-
-    data: 'https://potluck-energy.firebaseio.com/projects.json'
+    url: '/api/v1/project/?format=json'
 
   });
 

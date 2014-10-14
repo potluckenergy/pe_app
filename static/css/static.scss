@@ -70,15 +70,16 @@ body {
     float: right;
     width: 33%;
 
-    a {
+    ul {
       float: right;
-      border-radius: 3px;
-      border: 1px solid $cloud;
+      line-height: 56px;
+    }
+
+    a {
       font-size: 14px;
       font-weight: 600;
       color: $grey;
-      padding: 3px 10px 3px 10px;
-      margin: 12px 0 12px 6px;
+      padding: 6px 10px 6px 10px;
       -webkit-transition: all 0.2s;
 
       &:hover {
@@ -88,6 +89,11 @@ body {
         color: $grey;
         border-color: $stormy;
       }
+    }
+
+    a.landing-login {
+      border-radius: 3px;
+      border: 1px solid $cloud;
     }
 
     a.landing-signup {
