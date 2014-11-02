@@ -70,6 +70,7 @@ class Project(models.Model):
   area = models.IntegerField(blank=True)
   treesSaved = models.IntegerField(blank=True)
   ytm = models.CharField(max_length=200, blank=True)
+  pictureUrl = models.URLField(max_length=500, blank=True)
   def __unicode__(self):
     return self.name
 

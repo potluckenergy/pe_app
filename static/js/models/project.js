@@ -34,6 +34,7 @@ define([
         treesSaved: 0,
         milesDriven: 0,
         ytm: 0.07,
+        pictureURL: '',
         greenCertificates: 0,
         payback: 0,
         cashflows: [],
