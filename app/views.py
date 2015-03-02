@@ -80,7 +80,7 @@ def about(request):
     return HttpResponse(t.render(c))
 
 def benefitreport(request):
-    t = get_template('benefit-report.html')
+    t = get_template('benefitreport.html')
     c = RequestContext(request, {})    
     return HttpResponse(t.render(c))
 
