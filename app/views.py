@@ -79,7 +79,7 @@ def about(request):
     c = RequestContext(request, {})    
     return HttpResponse(t.render(c))
 
-def benefit-report(request):
+def benefitreport(request):
     t = get_template('benefit-report.html')
     c = RequestContext(request, {})    
     return HttpResponse(t.render(c))

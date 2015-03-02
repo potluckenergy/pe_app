@@ -37,7 +37,7 @@ urlpatterns = patterns('app.views',
 
     # static
     url(r'^about',      'about', name='home'),
-    url(r'^benefit-report',      'benefit-report', name='home'),
+    url(r'^benefitreport',      'benefitreport', name='home'),
     url(r'^legal',      'legal', name='home'),
 
     # admin
